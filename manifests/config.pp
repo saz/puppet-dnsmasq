@@ -8,4 +8,15 @@ class dnsmasq::config {
         require => Class['dnsmasq::install'],
         notify  => Class['dnsmasq::service'],
     }
+
+    file { $dnsmasq::params::config_dir:
+        ensure  => directory,
+        recurse => true,
+        purge   => true,
+        force   => true,
+        owner   => root,
+        group   => root,
+        require => Class['dnsmasq::install'],
+        notify  => Class['dnsmasq::service'],
+    }
 }
