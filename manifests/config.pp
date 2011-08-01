@@ -4,7 +4,7 @@ class dnsmasq::config {
         owner   => root,
         group   => root,
         mode    => 644,
-        source  => 'puppet:///modules/dnsmasq/dnsmasq.conf'
+        source  => 'puppet:///modules/dnsmasq/dnsmasq.conf',
         require => Class['dnsmasq::install'],
         notify  => Class['dnsmasq::service'],
     }
