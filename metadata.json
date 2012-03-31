@@ -1,0 +1,31 @@
+{
+  "summary": "UNKNOWN",
+  "author": "saz",
+  "source": "UNKNOWN",
+  "dependencies": [
+
+  ],
+  "types": [
+
+  ],
+  "license": "Apache License, Version 2.0",
+  "project_page": "https://github.com/saz/puppet-dnsmasq",
+  "version": "1.0.0",
+  "name": "saz-dnsmasq",
+  "checksums": {
+    "spec/spec_helper.rb": "ca19ec4f451ebc7fdb035b52eae6e909",
+    "manifests/params.pp": "2639307d965567a1d660295a720646c4",
+    "README.md": "9dafd7c3c03ab52ebd41ea58a65ccc29",
+    "manifests/config.pp": "f76bcc79bb29adca4153107eb1364e3c",
+    "manifests/service.pp": "1bc8c92930edfe9555159528c8bf9a70",
+    "tests/init.pp": "722b590c5d016ff4e1c340f7bee6c252",
+    "files/dnsmasq.conf": "6161ae53c6d8a5aee1eb4bb2fa902b2c",
+    "manifests/install.pp": "895bcf55dfabd65f8f4c5373bb83dbab",
+    "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+    "metadata.json": "d34d0b70aba36510fbc2df4e667479ef",
+    "manifests/conf.pp": "51d3d0199e05c9c40572610192cb4f5f",
+    "manifests/init.pp": "909c7b057caebf90b969e2ca7f750571",
+    "Modulefile": "824f67a480edbbf5547bbcb3beca4005"
+  },
+  "description": "Manage dnsmasq via Puppet"
+}
