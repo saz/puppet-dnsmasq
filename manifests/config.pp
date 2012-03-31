@@ -21,21 +21,3 @@ class dnsmasq::config {
             notify => Class['dnsmasq::service'],
     }
 }
-define dnsmasq::dhcp-host ($ensure = "present",
-    $hostname = "",
-    $mac,
-    $ip = "") {
-    $h_real = $hostname ? {
-        "" => $name,
-        default => $name,
-    }
-    $add_real = $ip ? {
-        "" => $h_real,
-        default => "${h_real},${ip}",
-    }
-    dnsmasq::config {
-        "dhcp-host_${name}" :
-            ensure => $ensure,
-            content => "dhcp-host=${mac},${add_real}\n",
-    }
-}
