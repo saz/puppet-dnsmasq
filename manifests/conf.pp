@@ -22,7 +22,7 @@ define dnsmasq::dhcp-host ($ensure = "present",
     $prio = 99) {
     $h_real = $hostname ? {
         "" => $name,
-        default => $name,
+        default => $hostname,
     }
     $add_real = $ip ? {
         "" => $h_real,
@@ -31,7 +31,7 @@ define dnsmasq::dhcp-host ($ensure = "present",
     dnsmasq::conf {
         "dhcp-host_${h_real}" :
             ensure => $ensure,
-            content => "dhcp-host=${mac},${add_real}\n",
+            content => "dhcp-host=${mac},id:*,${add_real}\n",
             prio => $prio,
     }
 }
