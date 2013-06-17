@@ -26,6 +26,10 @@ class dnsmasq::server(
 ) {
   include ::dnsmasq
 
+  if defined(Class['dnsmasq::client']) {
+    fail('dnsmasq::client and dnsmasq::server are mutually exclusive')
+  }
+
   validate_hash($cnames)
   validate_hash($aliases)
 
