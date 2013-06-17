@@ -12,7 +12,6 @@ define dnsmasq::conf(
     group   => 'root',
     content => $content,
     source  => $source,
-    require => Class['dnsmasq'],
     notify  => Class['dnsmasq::service'],
   }
 }
