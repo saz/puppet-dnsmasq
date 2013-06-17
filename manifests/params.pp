@@ -6,6 +6,7 @@ class dnsmasq::params {
       $config_file = '/etc/dnsmasq.conf'
       $resolv_file = '/etc/resolv.conf.dnsmasq'
       $config_dir = '/etc/dnsmasq.d/'
+      $sysv_default = '/etc/default/dnsmasq'
     }
     redhat: {
       $package_name = 'dnsmasq'

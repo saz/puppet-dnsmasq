@@ -1,4 +1,6 @@
-class dnsmasq {
+class dnsmasq(
+  $ignore_resolvconf = undef
+) {
   include dnsmasq::params
 
   anchor { 'dnsmasq::start': }
@@ -8,7 +10,8 @@ class dnsmasq {
   }
 
   class { 'dnsmasq::config':
-    require => Class['dnsmasq::install'],
+    ignore_resolvconf => $ignore_resolvconf,
+    require           => Class['dnsmasq::install'],
   }
 
   class { 'dnsmasq::service':
