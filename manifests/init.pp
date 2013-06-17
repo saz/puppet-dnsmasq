@@ -18,6 +18,10 @@ class dnsmasq {
     ],
   }
 
+  class { 'dnsmasq::reload':
+    require => Class['dnsmasq::service'],
+  }
+
   anchor { 'dnsmasq::end':
     require => Class['dnsmasq::service'],
   }
