@@ -4,6 +4,5 @@ class dnsmasq::service {
     enable     => true,
     hasrestart => true,
     hasstatus  => true,
-    require    => Class['dnsmasq::config'],
   }
 }
