@@ -18,6 +18,6 @@ define dnsmasq::dhcp_host (
     ensure  => $ensure,
     content => "dhcp-host=${mac},id:*,${add_real}\n",
     prio    => $prio,
-    notify  => Service[$dnsmasq::params::service_name],
+    notify  => Exec['/usr/bin/pkill -HUP dnsmasq'],
   }
 }
