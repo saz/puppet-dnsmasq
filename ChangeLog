@@ -1,0 +1,11 @@
+2013-08-07  Udo Waechter  <udo@maketank.net>
+
+	* manifests/dhcp_host.pp: New file. Define a known host including FQDN and Mac address
+	* manifests/reload.pp: New file.
+	* manifests/conf.pp: Merged with upstream
+	* manifests/config.pp: Merged with upstream 
+	* manifests/init.pp:  Merged with upstream
+	* manifests/install.pp:  Merged with upstream
+	* manifests/params.pp:  Merged with upstream
+	* manifests/service.pp:  Merged with upstream
+	* Modulefile: updated, version bump
