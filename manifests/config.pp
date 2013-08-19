@@ -9,10 +9,10 @@ class dnsmasq::config {
       mode   => '0644',
       source => 'puppet:///modules/dnsmasq/dnsmasq.conf';
 
-    $dnsmasq::params::config_dir:
-      ensure  => 'directory',
-      recurse => true,
-      purge   => true,
-      force   => true,
+#    $dnsmasq::params::config_dir:
+#      ensure  => 'directory',
+#      recurse => true,
+#      purge   => true,
+#      force   => true;
   }
 }
