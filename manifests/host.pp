@@ -10,9 +10,11 @@ define dnsmasq::host (
   }
 
   if $mac != false {
+    $mac_r = inline_template('<%= mac.upcase! %>')
+    notice("DNSMASQ: ${h_real} ${ip} ${mac_r}")
     @@common::line { "dnsmasq::ethers ${h_real}":
       file   => "/etc/ethers",
-      line   => "${mac} ${ip}",
+      line   => "${mac_r} ${ip}",
       ensure => $ensure,
       notify => Class['dnsmasq::reload'],
       tag    => 'dnsmasq-host',
