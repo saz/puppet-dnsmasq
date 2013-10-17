@@ -14,7 +14,7 @@ define dnsmasq::dhcp_host (
     default => "${h_real},${ip}",
   }
 
-  dnsmasq::conf { "dhcp-host_${h_real}":
+  dnsmasq::conf { "dhcp-host_${h_real}_${mac}":
     ensure  => $ensure,
     content => "dhcp-host=${mac},id:*,${add_real}\n",
     prio    => $prio,
