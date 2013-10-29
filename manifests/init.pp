@@ -1,3 +1,7 @@
+# = Class: dnsmasq
+#
+# Installs and manages dnsmasq
+#
 class dnsmasq(
   $ignore_resolvconf = undef
 ) {

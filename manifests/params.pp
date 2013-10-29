@@ -1,3 +1,7 @@
+# = Class: dnsmasq::params
+#
+# This class is private to the dnsmasq implementation
+#
 class dnsmasq::params {
   case $::osfamily {
     debian: {

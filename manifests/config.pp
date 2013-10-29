@@ -1,5 +1,6 @@
 # = Class: dnsmasq::config
 #
+# This class is private to the dnsmasq implementation
 #
 # == Parameters:
 #
