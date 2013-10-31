@@ -4,13 +4,7 @@
 #
 # == Parameters:
 #
-# [*ignore_resolvconf*]
-#   Tell dnsmasq to ignore resolvconf and just read `/etc/resolv.conf`. Only
-#   valid for Debian-alike systems.
-#   Default: false
-#
 class dnsmasq::config(
-  $ignore_resolvconf = false
 ) {
   file { $dnsmasq::params::config_file:
     ensure  => file,

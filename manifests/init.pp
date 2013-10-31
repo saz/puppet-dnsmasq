@@ -3,7 +3,6 @@
 # Installs and manages dnsmasq
 #
 class dnsmasq(
-  $ignore_resolvconf = undef
 ) {
   include dnsmasq::params
 
@@ -14,7 +13,6 @@ class dnsmasq(
   }
 
   class { 'dnsmasq::config':
-    ignore_resolvconf => $ignore_resolvconf,
     require           => Class['dnsmasq::install'],
   }
 
