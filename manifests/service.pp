@@ -17,7 +17,14 @@ respawn
 # and should be killed off.
 respawn limit 5 20
 
-exec /usr/sbin/dnsmasq
+# register with resolvconf when we start and unregister when we stop
+post-start exec echo 'nameserver 127.0.0.1' | /sbin/resolvconf -a lo.dnsmasq
+
+pre-stop exec /sbin/resolvconf -d lo.dnsmasq
+
+expect daemon
+
+exec /usr/sbin/dnsmasq -r ${dnsmasq::params::resolv_file}
 ",
       before => Service[$dnsmasq::params::service_name],
     }
