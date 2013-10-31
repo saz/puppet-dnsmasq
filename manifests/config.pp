@@ -4,7 +4,10 @@
 #
 # == Parameters:
 #
+# [*upstream_servers*]
+# An array of IP addresses of upstream nameservers to proxy.
 class dnsmasq::config(
+  $upstream_servers = []
 ) {
   file { $dnsmasq::params::config_file:
     ensure  => file,
@@ -18,10 +21,10 @@ class dnsmasq::config(
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => '
-    nameserver 8.8.8.8
-    nameserver 8.8.4.4
-    ',
+    content => inline_template("
+<% @upstream_servers.each do |server|%>
+nameserver <%= server %>
+<% end %>"),
   }
 
   file { $dnsmasq::params::config_dir:
