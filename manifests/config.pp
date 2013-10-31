@@ -28,14 +28,4 @@ class dnsmasq::config(
     owner   => 'root',
     group   => 'root',
   }
-
-  if $::osfamily == 'Debian' {
-    file { $dnsmasq::params::sysv_default:
-      ensure  => file,
-      owner   => 'root',
-      group   => 'root',
-      mode    => '0644',
-      content => template('dnsmasq/etc/default/dnsmasq.erb'),
-    }
-  }
 }
