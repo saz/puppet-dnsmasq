@@ -3,7 +3,7 @@
 # Installs and manages dnsmasq
 #
 class dnsmasq(
-  $upstream_servers => [],
+  $upstream_servers = [],
 ) {
   include dnsmasq::params
 
