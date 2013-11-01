@@ -8,7 +8,6 @@ class dnsmasq::params {
       $package_name = 'dnsmasq'
       $service_name = 'dnsmasq'
       $config_file = '/etc/dnsmasq.conf'
-      $resolv_file = '/etc/resolv.conf.dnsmasq'
       $config_dir = '/etc/dnsmasq.d/'
       $sysv_default = '/etc/default/dnsmasq'
     }
@@ -16,7 +15,6 @@ class dnsmasq::params {
       $package_name = 'dnsmasq'
       $service_name = 'dnsmasq'
       $config_file = '/etc/dnsmasq.conf'
-      $resolv_file = '/etc/resolv.conf.dnsmasq'
       $config_dir = '/etc/dnsmasq.d/'
     }
     default: {

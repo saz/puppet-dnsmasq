@@ -11,7 +11,7 @@ class dnsmasq::upstreams (
   ) {
   include dnsmasq
 
-  file {$dnsmasq::params::resolv_file:
+  file {'/etc/resolv.conf.dnsmasq':
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
@@ -19,6 +19,6 @@ class dnsmasq::upstreams (
   }
 
   dnsmasq::conf {'use-custom-resolv-conf':
-    content => "resolv-file=${dnsmasq::params::resolv_file}\n",
+    content => "resolv-file=/etc/resolv.conf.dnsmasq\n",
   }
 }
