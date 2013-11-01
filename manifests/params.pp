@@ -9,13 +9,22 @@ class dnsmasq::params {
       $service_name = 'dnsmasq'
       $config_file = '/etc/dnsmasq.conf'
       $config_dir = '/etc/dnsmasq.d/'
-      $sysv_default = '/etc/default/dnsmasq'
+      case $::operatingsystem {
+        'Ubuntu': {
+          $sysv_default = '/etc/default/dnsmasq'
+          $service_type = 'upstart'
+        }
+        default: {
+          $service_type = 'init'
+        }
+      }
     }
     redhat: {
       $package_name = 'dnsmasq'
       $service_name = 'dnsmasq'
       $config_file = '/etc/dnsmasq.conf'
       $config_dir = '/etc/dnsmasq.d/'
+      $service_type = 'init'
     }
     default: {
       case $::operatingsystem {

@@ -3,7 +3,7 @@
 # This class is private to the dnsmasq implementation
 #
 class dnsmasq::service {
-  if $::osfamily == 'Debian' {
+  if $dnsmasq::params::service_type == 'upstart' {
     file { "/etc/init/${dnsmasq::params::service_name}.conf":
       source => 'puppet:///modules/dnsmasq/etc/init/dnsmasq.conf',
       before => Service[$dnsmasq::params::service_name],
