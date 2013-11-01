@@ -23,6 +23,7 @@ class dnsmasq::config (
   }
 
   if $upstream_servers {
+    validate_array($upstream_servers)
     class {'dnsmasq::upstreams': upstream_servers => $upstream_servers }
   }
 
