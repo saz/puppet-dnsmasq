@@ -9,11 +9,16 @@
 class dnsmasq::upstreams (
   $upstream_servers = []
   ) {
-  include dnsmasq::params
+  include dnsmasq
+
   file {$dnsmasq::params::resolv_file:
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
     content => template('dnsmasq/resolv-file.erb'),
+  }
+
+  dnsmasq::conf {'use-custom-resolv-conf':
+    content => "resolv-file=${dnsmasq::params::resolv_file}\n",
   }
 }

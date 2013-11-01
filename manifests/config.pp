@@ -17,10 +17,6 @@ class dnsmasq::config(
     source  => 'puppet:///modules/dnsmasq/dnsmasq.conf',
   }
 
-  class {'dnsmasq::upstreams':
-    upstream_servers => $upstream_servers,
-  }
-
   file { $dnsmasq::params::config_dir:
     ensure  => directory,
     recurse => true,
@@ -28,9 +24,5 @@ class dnsmasq::config(
     force   => true,
     owner   => 'root',
     group   => 'root',
-  }
-
-  dnsmasq::conf {'use-custom-resolv-conf':
-    content => "resolv-file=${dnsmasq::params::resolv_file}\n",
   }
 }
