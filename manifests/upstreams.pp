@@ -1,11 +1,6 @@
 # = Class: dnsmasq::upstreams
 #
-# Configures dnsmasq to use a static list of upstream DNS servers
-#
-# == Parameters:
-#
-# [*upstream_servers*]
-# An array of IP addresses of upstream nameservers to proxy.
+# This class is private to the dnsmasq implementation
 class dnsmasq::upstreams (
   $upstream_servers = []
   ) {

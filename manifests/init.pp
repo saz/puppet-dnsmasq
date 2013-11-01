@@ -2,7 +2,14 @@
 #
 # Installs and manages dnsmasq
 #
-class dnsmasq {
+# == Parameters
+#
+# [*upstream_servers*]
+#   An array of upstream DNS servers to proxy.
+#   Default: undef
+class dnsmasq (
+  $upstream_servers = undef
+  ) {
   include dnsmasq::params
 
   anchor { 'dnsmasq::start': }
@@ -12,6 +19,7 @@ class dnsmasq {
   }
 
   class { 'dnsmasq::config':
+    upstream_servers => $upstream_servers,
     require          => Class['dnsmasq::install'],
   }
 

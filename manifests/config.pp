@@ -1,7 +1,9 @@
 # = Class: dnsmasq::config
 #
 # This class is private to the dnsmasq implementation
-class dnsmasq::config {
+class dnsmasq::config (
+  $upstream_servers = undef
+  ) {
   file { $dnsmasq::params::config_file:
     ensure  => file,
     owner   => 'root',
@@ -17,5 +19,9 @@ class dnsmasq::config {
     force   => true,
     owner   => 'root',
     group   => 'root',
+  }
+
+  if $upstream_servers {
+    class {'dnsmasq::upstreams': upstream_servers => $upstream_servers }
   }
 }
