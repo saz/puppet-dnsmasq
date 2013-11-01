@@ -35,4 +35,8 @@ nameserver <%= server %>
     owner   => 'root',
     group   => 'root',
   }
+
+  dnsmasq::conf {'use-custom-resolv-conf':
+    content => "resolv-file=${dnsmasq::params::resolv_file}\n",
+  }
 }

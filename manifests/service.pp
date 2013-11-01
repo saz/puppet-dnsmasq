@@ -19,7 +19,7 @@ respawn limit 5 20
 
 expect daemon
 
-exec /usr/sbin/dnsmasq -r ${dnsmasq::params::resolv_file}
+exec /usr/sbin/dnsmasq
 ",
       before => Service[$dnsmasq::params::service_name],
     }
