@@ -2,7 +2,8 @@
 #
 # This class is private to the dnsmasq implementation
 class dnsmasq::config (
-  $upstream_servers = undef
+  $upstream_servers = undef,
+  $use_resolvconf   = 'no'
   ) {
   file { $dnsmasq::params::config_file:
     ensure  => file,
@@ -23,5 +24,9 @@ class dnsmasq::config (
 
   if $upstream_servers {
     class {'dnsmasq::upstreams': upstream_servers => $upstream_servers }
+  }
+
+  if str2bool($use_resolvconf) {
+    include dnsmasq::resolvconf
   }
 }

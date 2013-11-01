@@ -8,6 +8,7 @@ describe 'dnsmasq' do
   context 'blank config' do
     it { should_not contain_file('/etc/resolv.conf.dnsmasq') }
     it { should_not contain_dnsmasq__conf('use-custom-resolv-conf') }
+    it { should_not contain_dnsmasq__conf('use-resolvconf') }
   end
 
   context 'when specifying upstream servers' do
@@ -21,5 +22,13 @@ describe 'dnsmasq' do
     }
     it { should contain_dnsmasq__conf('use-custom-resolv-conf').
            with_content("resolv-file=/etc/resolv.conf.dnsmasq\n") }
+  end
+
+  context 'when requesting resolvconf configuration' do
+    let (:params) {{
+        :use_resolvconf => 'yes',
+      }}
+    it { should contain_dnsmasq__conf('use-resolvconf').
+           with_content("resolv-file=/var/run/dnsmasq/resolv.conf\n") }
   end
 end
