@@ -17,11 +17,8 @@ class dnsmasq::config(
     source  => 'puppet:///modules/dnsmasq/dnsmasq.conf',
   }
 
-  file { $dnsmasq::params::resolv_file:
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    content => template('dnsmasq/resolv-file.erb'),
+  class {'dnsmasq::upstreams':
+    upstream_servers => $upstream_servers,
   }
 
   file { $dnsmasq::params::config_dir:
