@@ -21,10 +21,7 @@ class dnsmasq::config(
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => inline_template("
-<% @upstream_servers.each do |server|%>
-nameserver <%= server %>
-<% end %>"),
+    content => template('dnsmasq/resolv-file.erb'),
   }
 
   file { $dnsmasq::params::config_dir:
