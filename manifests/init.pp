@@ -2,9 +2,7 @@
 #
 # Installs and manages dnsmasq
 #
-class dnsmasq(
-  $upstream_servers = [],
-) {
+class dnsmasq {
   include dnsmasq::params
 
   anchor { 'dnsmasq::start': }
@@ -15,7 +13,6 @@ class dnsmasq(
 
   class { 'dnsmasq::config':
     require          => Class['dnsmasq::install'],
-    upstream_servers => $upstream_servers,
   }
 
   class { 'dnsmasq::service':

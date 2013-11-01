@@ -1,14 +1,7 @@
 # = Class: dnsmasq::config
 #
 # This class is private to the dnsmasq implementation
-#
-# == Parameters:
-#
-# [*upstream_servers*]
-# An array of IP addresses of upstream nameservers to proxy.
-class dnsmasq::config(
-  $upstream_servers = []
-) {
+class dnsmasq::config {
   file { $dnsmasq::params::config_file:
     ensure  => file,
     owner   => 'root',
