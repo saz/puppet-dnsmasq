@@ -8,6 +8,10 @@ class dnsmasq::service {
       source => 'puppet:///modules/dnsmasq/etc/init/dnsmasq.conf',
       before => Service[$dnsmasq::params::service_name],
     }
+    file { "/etc/init.d/${dnsmasq::params::service_name}":
+      ensure => link,
+      target => '/lib/init/upstart-job',
+    }
   }
   service { $dnsmasq::params::service_name:
     ensure     => running,
