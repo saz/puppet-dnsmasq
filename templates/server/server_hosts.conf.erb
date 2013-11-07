@@ -1,0 +1,12 @@
+# Create A records from a hosts(5) file.
+addn-hosts=/etc/hosts.dnsmasq
+
+# CNAME records.
+<%- @cnames.each do |src, dst| -%>
+cname=<%= src %>,<%= dst %>
+<%- end -%>
+
+# Split-horizon views of external IPs.
+<%- @aliases.each do |src, dst| -%>
+alias=<%= src %>,<%= dst %>
+<%- end -%>

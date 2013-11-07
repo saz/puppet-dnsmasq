@@ -7,4 +7,4 @@ summary 'UNKNOWN'
 description 'Manage dnsmasq via Puppet'
 project_page 'https://github.com/saz/puppet-dnsmasq'
 
-dependency 'puppetlabs/stdlib', '>= 2.0.0'
+dependency 'puppetlabs/stdlib', '>= 3.0.0'
