@@ -1,10 +1,10 @@
-name    'saz-dnsmasq'
-version '1.0.1'
-source 'UNKNOWN'
+name 'saz-dnsmasq'
+version '1.0.2'
+
 author 'saz'
 license 'Apache License, Version 2.0'
+project_page 'https://github.com/saz/puppet-dnsmasq'
+source 'UNKNOWN'
 summary 'UNKNOWN'
 description 'Manage dnsmasq via Puppet'
-project_page 'https://github.com/saz/puppet-dnsmasq'
-
-dependency 'puppetlabs/stdlib', '>= 2.0.0'
+dependency 'puppetlabs/stdlib', '>=2.0.0'
