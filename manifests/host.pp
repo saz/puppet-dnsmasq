@@ -30,7 +30,7 @@ define dnsmasq::host (
   }
 
   @@file_line { "dnsmasq::hosts ${h_real} ${ip}":
-    file   => "/etc/hosts",
+    path   => "/etc/hosts",
     line   => "${ip} ${h_real}${al_add}",
     ensure => $ip ? {
       ''      => 'absent',
