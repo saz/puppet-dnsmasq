@@ -13,8 +13,8 @@ define dnsmasq::host (
     $mac_r = inline_template('<%= mac.upcase! %>')
     debug("DNSMASQ: ${h_real} ${ip} ${mac_r}")
 
-    @@common::line { "dnsmasq::ethers ${h_real} ${mac_r}":
-      file   => "/etc/ethers",
+    @@file_line { "dnsmasq::ethers ${h_real} ${mac_r}":
+      path   => "/etc/ethers",
       line   => "${mac_r} ${ip}",
       ensure => $mac ? {
         ''      => 'absent',
@@ -29,7 +29,7 @@ define dnsmasq::host (
     default => " ${aliases}",
   }
 
-  @@common::line { "dnsmasq::hosts ${h_real} ${ip}":
+  @@file_line { "dnsmasq::hosts ${h_real} ${ip}":
     file   => "/etc/hosts",
     line   => "${ip} ${h_real}${al_add}",
     ensure => $ip ? {
