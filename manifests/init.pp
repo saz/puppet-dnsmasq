@@ -16,5 +16,7 @@ class dnsmasq {
   }
 
   anchor { 'dnsmasq::end': require => Class['dnsmasq::service'], }
-  File_line <<| tag == 'dnsmasq-host' |>>
+  if $::settings::storeconfigs {
+    File_line <<| tag == 'dnsmasq-host' |>>
+  }
 }
