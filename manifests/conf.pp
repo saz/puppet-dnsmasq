@@ -3,7 +3,7 @@ define dnsmasq::conf (
   $prio    = 10,
   $source  = undef,
   $content = undef) {
-  include dnsmasq
+  include ::dnsmasq
 
   file { "${dnsmasq::params::config_dir}${prio}-${name}":
     ensure  => $ensure,

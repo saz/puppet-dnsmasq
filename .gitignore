@@ -2,3 +2,5 @@ pkg/
 *.swp
 metadata.json
 .project
+Gemfile.lock
+vendor/
