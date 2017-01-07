@@ -1,5 +1,9 @@
-class dnsmasq {
+class dnsmasq(
+  $configs_hash = {}
+) {
   include ::dnsmasq::params
+
+  validate_hash($configs_hash)
 
   anchor { '::dnsmasq::start': }
 
@@ -18,5 +22,9 @@ class dnsmasq {
   anchor { '::dnsmasq::end': require => Class['::dnsmasq::service'], }
   if $::settings::storeconfigs {
     File_line <<| tag == 'dnsmasq-host' |>>
+  }
+
+  if $configs_hash != {} {
+    create_resources(dnsmasq::host, $configs_hash)
   }
 }
