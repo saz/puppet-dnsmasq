@@ -2,6 +2,9 @@
 
 Manage dnsmasq via Puppet
 
+### Supported Puppet versions
+* Puppet >= 3
+
 ## How to use
 
 ```
