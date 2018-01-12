@@ -1,4 +1,0 @@
-module: saz/dnsmasq
-version: 1.0.0
-url: file:///home/admini/.puppet/var/puppet-module/cache/http_forge_puppetlabs_com-75a31f1d6f1ef6eb63b4479b3512ee1508209a7f/saz-dnsmasq-1.0.0.tar.gz
-installed: Mon Jan 30 21:36:42 +0100 2012
