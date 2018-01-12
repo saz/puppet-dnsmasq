@@ -4,6 +4,7 @@ class dnsmasq(
   $dhcp_hosts_hash = {},
   $package_ensure = 'installed',
   $service_control = true,
+  $purge_config_dir = false,
 ) {
   include ::dnsmasq::params
 
