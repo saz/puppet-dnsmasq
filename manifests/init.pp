@@ -18,7 +18,7 @@ class dnsmasq(
 
   class { '::dnsmasq::service':
     service_control => $service_control,
-    subscribe => Class['::dnsmasq::install', '::dnsmasq::config'],
+    subscribe       => Class['::dnsmasq::install', '::dnsmasq::config'],
   }
 
   class { '::dnsmasq::reload':
