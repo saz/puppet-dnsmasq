@@ -3,7 +3,17 @@ class dnsmasq::install {
     ensure => $dnsmasq::package_ensure,
   }
 
-  file { $dnsmasq::params::config_dir:
-    ensure => 'directory',
+  if $dnsmasq::params::purge {
+    file { $dnsmasq::params::config_dir:
+      ensure  => 'directory',
+      recurse => true,
+      purge   => true,
+      force   => true,
+    }
+  } else {
+    file { $dnsmasq::params::config_dir:
+      ensure => 'directory',
+    }
   }
 }
+
