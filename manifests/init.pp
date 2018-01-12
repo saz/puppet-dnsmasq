@@ -3,6 +3,7 @@ class dnsmasq(
   $hosts_hash = {},
   $dhcp_hosts_hash = {},
   $package_ensure = 'installed',
+  $service_control = true,
 ) {
   include ::dnsmasq::params
 
@@ -17,6 +18,7 @@ class dnsmasq(
   class { '::dnsmasq::config': require => Class['::dnsmasq::install'], }
 
   class { '::dnsmasq::service':
+    service_control => $service_control,
     subscribe => Class['::dnsmasq::install', '::dnsmasq::config'],
   }
 
