@@ -2,6 +2,7 @@ class dnsmasq(
   $configs_hash = {},
   $hosts_hash = {},
   $dhcp_hosts_hash = {},
+  $package_ensure = 'installed',
   $service_control = true,
 ) {
   include ::dnsmasq::params
