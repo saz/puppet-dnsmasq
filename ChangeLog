@@ -1,3 +1,7 @@
+2018-05-15  Federico Fapitalle <federico.fapitalle@gmail.com>
+
+	* Manage DNSMASQ_EXCEPT
+
 2013-08-07  Udo Waechter  <udo@maketank.net>
 
 	* manifests/dhcp_host.pp: New file. Define a known host including FQDN and Mac address
