@@ -1,6 +1,6 @@
 2018-05-15  Federico Fapitalle <federico.fapitalle@gmail.com>
 
-	* Manage DNSMASQ_EXCEPT
+	* Manage DNSMASQ_EXCEPT and IGNORE_RESOLVCONF service variables
 
 2013-08-07  Udo Waechter  <udo@maketank.net>
 
