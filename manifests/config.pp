@@ -22,7 +22,6 @@ class dnsmasq::config (
       path               => $::dnsmasq::params::defaults_file,
       line               => "DNSMASQ_EXCEPT=\"${except_value}\"",
       match              => '^#?DNSMASQ_EXCEPT',
-      append_on_no_match => true,
     }
   }
 
@@ -32,7 +31,6 @@ class dnsmasq::config (
     path               => $::dnsmasq::params::defaults_file,
     line               => "IGNORE_RESOLVCONF=${ign_resolvconf_value}",
     match              => '^#?IGNORE_RESOLVCONF',
-    append_on_no_match => true,
   }
 
 }
