@@ -7,11 +7,12 @@ define dnsmasq::conf (
   include dnsmasq
 
   file { "${dnsmasq::params::config_dir}${prio}-${name}":
-    ensure  => $ensure,
-    owner   => 'root',
-    group   => 0,
-    content => $content,
-    source  => $source,
-    notify  => Class['dnsmasq::service'],
+    ensure       => $ensure,
+    owner        => 'root',
+    group        => 0,
+    content      => $content,
+    source       => $source,
+    validate_cmd => '/usr/sbin/dnsmasq --test --conf-file=%',
+    notify       => Class['dnsmasq::service'],
   }
 }
