@@ -5,12 +5,15 @@ class dnsmasq(
   $package_ensure = 'installed',
   $service_control = true,
   $purge_config_dir = false,
+  $except_interfaces = undef,
+  $ignore_resolvconf = false,
 ) {
   include ::dnsmasq::params
 
   validate_hash($configs_hash)
   validate_hash($hosts_hash)
   validate_hash($dhcp_hosts_hash)
+  validate_bool($ignore_resolvconf)
 
   anchor { '::dnsmasq::start': }
 
