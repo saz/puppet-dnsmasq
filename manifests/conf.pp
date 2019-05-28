@@ -1,6 +1,6 @@
 define dnsmasq::conf (
   Enum['absent', 'present'] $ensure = 'present',
-  Integer[0, 999] $prio = 10,
+  Variant[Integer[0, 999], String] $prio = 10,
   Optional[String] $source = undef,
   Optional[String] $content = undef
 ) {
