@@ -1,16 +1,12 @@
 class dnsmasq(
-  $configs_hash = {},
-  $hosts_hash = {},
-  $dhcp_hosts_hash = {},
-  $package_ensure = 'installed',
-  $service_control = true,
-  $purge_config_dir = false,
+  Hash $configs_hash = {},
+  Hash $hosts_hash = {},
+  Hash $dhcp_hosts_hash = {},
+  String $package_ensure = 'installed',
+  Boolean $service_control = true,
+  Boolean $purge_config_dir = false,
 ) {
   include ::dnsmasq::params
-
-  validate_hash($configs_hash)
-  validate_hash($hosts_hash)
-  validate_hash($dhcp_hosts_hash)
 
   anchor { '::dnsmasq::start': }
 

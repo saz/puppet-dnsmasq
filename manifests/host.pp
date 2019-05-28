@@ -1,9 +1,9 @@
 define dnsmasq::host (
-  $ip,
-  $hostname = undef,
-  $aliases  = undef,
-  $mac      = false,
-  $ensure   = 'present'
+  String $ip,
+  String $hostname = undef,
+  String $aliases = undef,
+  Boolean $mac = false,
+  Enum['present', 'absent'] $ensure = 'present',
 ) {
   $h_real = $hostname ? {
     undef   => $name,

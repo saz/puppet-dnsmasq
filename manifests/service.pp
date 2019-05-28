@@ -1,5 +1,5 @@
 class dnsmasq::service (
-  $service_control = true,
+  Variant[Boolean, String] $service_control = true,
 ) {
   # validate type and convert string to boolean if necessary
   if is_string($service_control) {
