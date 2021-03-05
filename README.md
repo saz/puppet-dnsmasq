@@ -1,4 +1,4 @@
-# puppet-dnsmasq [![Build Status](https://secure.travis-ci.org/saz/puppet-dnsmasq.png)](https://travis-ci.org/saz/puppet-dnsmasq)
+# puppet-dnsmasq [![CI Build Status](https://github.com/saz/puppet-dnsmasq/actions/workflows/ci.yml/badge.svg)](https://github.com/saz/puppet-dnsmasq/actions/workflows/ci.yml)
 
 Manage dnsmasq via Puppet
 
