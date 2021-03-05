@@ -4,9 +4,8 @@ class dnsmasq::config {
     group => 'root',
   }
 
-  file { $::dnsmasq::params::config_file:
+  file { $dnsmasq::params::config_file:
     mode   => '0644',
     source => 'puppet:///modules/dnsmasq/dnsmasq.conf',
   }
-
 }
