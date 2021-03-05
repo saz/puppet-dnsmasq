@@ -1,6 +1,7 @@
 require: rubocop-rspec
 AllCops:
-  TargetRubyVersion: 2.2
+  NewCops: enable
+  TargetRubyVersion: 2.5
   Include:
     - ./**/*.rb
   Exclude:
@@ -13,7 +14,7 @@ AllCops:
     - spec/fixtures/**/*
     - Gemfile
     - Rakefile
-Lint/ConditionPosition:
+Layout/ConditionPosition:
   Enabled: true
 
 Lint/ElseLayout:
@@ -22,13 +23,13 @@ Lint/ElseLayout:
 Lint/UnreachableCode:
   Enabled: true
 
-Lint/UselessComparison:
+Lint/BinaryOperatorWithIdenticalOperands:
   Enabled: true
 
 Lint/EnsureReturn:
   Enabled: true
 
-Lint/HandleExceptions:
+Lint/SuppressedException:
   Enabled: true
 
 Lint/ShadowingOuterLocalVariable:
@@ -75,13 +76,13 @@ Lint/AmbiguousRegexpLiteral:
 Security/Eval:
   Enabled: true
 
-Lint/BlockAlignment:
+Layout/BlockAlignment:
   Enabled: true
 
-Lint/DefEndAlignment:
+Layout/DefEndAlignment:
   Enabled: true
 
-Lint/EndAlignment:
+Layout/EndAlignment:
   Enabled: true
 
 Lint/DeprecatedClassMethods:
@@ -96,7 +97,7 @@ Lint/ParenthesesAsGroupedExpression:
 Lint/RescueException:
   Enabled: true
 
-Lint/StringConversionInInterpolation:
+Lint/RedundantStringCoercion:
   Enabled: true
 
 Lint/UnusedBlockArgument:
@@ -117,19 +118,19 @@ Lint/Void:
 Layout/AccessModifierIndentation:
   Enabled: true
 
-Style/AccessorMethodName:
+Naming/AccessorMethodName:
   Enabled: true
 
 Style/Alias:
   Enabled: true
 
-Layout/AlignArray:
+Layout/ArrayAlignment:
   Enabled: true
 
-Layout/AlignHash:
+Layout/HashAlignment:
   Enabled: true
 
-Layout/AlignParameters:
+Layout/ParameterAlignment:
   Enabled: true
 
 Metrics/BlockNesting:
@@ -141,9 +142,6 @@ Style/AsciiComments:
 Style/Attr:
   Enabled: true
 
-Style/BracesAroundHashParameters:
-  Enabled: true
-
 Style/CaseEquality:
   Enabled: true
 
@@ -153,7 +151,7 @@ Layout/CaseIndentation:
 Style/CharacterLiteral:
   Enabled: true
 
-Style/ClassAndModuleCamelCase:
+Naming/ClassAndModuleCamelCase:
   Enabled: true
 
 Style/ClassAndModuleChildren:
@@ -178,22 +176,19 @@ Style/WhenThen:
 Style/WordArray:
   Enabled: true
 
-Style/UnneededPercentQ:
+Style/RedundantPercentQ:
   Enabled: true
 
-Layout/Tab:
+Layout/IndentationStyle:
   Enabled: true
 
 Layout/SpaceBeforeSemicolon:
   Enabled: true
 
-Layout/TrailingBlankLines:
+Layout/TrailingEmptyLines:
   Enabled: true
 
 Layout/SpaceInsideBlockBraces:
-  Enabled: true
-
-Layout/SpaceInsideBrackets:
   Enabled: true
 
 Layout/SpaceInsideHashLiteralBraces:
@@ -251,7 +246,7 @@ Style/CommentAnnotation:
 Metrics/CyclomaticComplexity:
   Enabled: false
 
-Style/ConstantName:
+Naming/ConstantName:
   Enabled: true
 
 Style/Documentation:
@@ -275,10 +270,10 @@ Style/EachWithObject:
 Layout/EmptyLineBetweenDefs:
   Enabled: true
 
-Layout/IndentArray:
+Layout/FirstArrayElementIndentation:
   Enabled: true
 
-Layout/IndentHash:
+Layout/FirstHashElementIndentation:
   Enabled: true
 
 Layout/IndentationConsistency:
@@ -297,7 +292,7 @@ Style/EmptyLiteral:
   Enabled: true
 
 # Configuration parameters: AllowURI, URISchemes.
-Metrics/LineLength:
+Layout/LineLength:
   Enabled: false
 
 Style/MethodCallWithoutArgsParentheses:
@@ -357,7 +352,7 @@ Style/UnlessElse:
 Style/VariableInterpolation:
   Enabled: true
 
-Style/VariableName:
+Naming/VariableName:
   Enabled: true
 
 Style/WhileUntilDo:
@@ -366,7 +361,7 @@ Style/WhileUntilDo:
 Style/EvenOdd:
   Enabled: true
 
-Style/FileName:
+Naming/FileName:
   Enabled: true
 
 Style/For:
@@ -375,7 +370,7 @@ Style/For:
 Style/Lambda:
   Enabled: true
 
-Style/MethodName:
+Naming/MethodName:
   Enabled: true
 
 Style/MultilineTernaryOperator:
@@ -420,7 +415,7 @@ Style/PercentLiteralDelimiters:
 Style/PerlBackrefs:
   Enabled: true
 
-Style/PredicateName:
+Naming/PredicateName:
   Enabled: true
 
 Style/RedundantException:
@@ -455,9 +450,6 @@ Metrics/ParameterLists:
 Lint/RequireParentheses:
   Enabled: true
 
-Layout/SpaceBeforeFirstArg:
-  Enabled: true
-
 Style/ModuleFunction:
   Enabled: true
 
@@ -489,9 +481,6 @@ Metrics/BlockLength:
 # 'Complexity' is very relative
 Metrics/PerceivedComplexity:
   Enabled: False
-
-Lint/UselessAssignment:
-  Enabled: true
 
 Layout/ClosingParenthesisIndentation:
   Enabled: false
