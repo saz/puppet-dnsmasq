@@ -8,9 +8,7 @@ class dnsmasq (
 ) {
   include dnsmasq::params
 
-  anchor { 'dnsmasq::start': }
-
-  class { 'dnsmasq::install': require => Anchor['dnsmasq::start'], }
+  class { 'dnsmasq::install': }
 
   class { 'dnsmasq::config': require => Class['dnsmasq::install'], }
 
@@ -23,7 +21,6 @@ class dnsmasq (
     require => Class['dnsmasq::service'],
   }
 
-  anchor { 'dnsmasq::end': require => Class['dnsmasq::service'], }
   if $::settings::storeconfigs {
     File_line <<| tag == 'dnsmasq-host' |>>
   }
