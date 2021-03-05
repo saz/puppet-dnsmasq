@@ -1,18 +1,18 @@
-require 'pathname'
-dir = Pathname.new(__FILE__).parent
-$LOAD_PATH.unshift(dir, dir + 'lib', dir + '../lib')
+# This file is managed via modulesync
+# https://github.com/voxpupuli/modulesync
+# https://github.com/voxpupuli/modulesync_config
 
-require 'mocha'
-require 'puppet'
-gem 'rspec', '=1.2.9'
-require 'spec/autorun'
+# puppetlabs_spec_helper will set up coverage if the env variable is set.
+# We want to do this if lib exists and it hasn't been explicitly set.
+ENV['COVERAGE'] ||= 'yes' if Dir.exist?(File.expand_path('../../lib', __FILE__))
 
-Spec::Runner.configure do |config|
-  config.mock_with :mocha
-end
+require 'voxpupuli/test/spec_helper'
 
-# We need this because the RAL uses 'should' as a method.  This
-# allows us the same behaviour but with a different method name.
-class Object
-  alias must should
+if File.exist?(File.join(__dir__, 'default_module_facts.yml'))
+  facts = YAML.safe_load(File.read(File.join(__dir__, 'default_module_facts.yml')))
+  if facts
+    facts.each do |name, value|
+      add_custom_fact name.to_sym, value
+    end
+  end
 end
