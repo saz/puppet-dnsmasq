@@ -1,4 +1,4 @@
-class dnsmasq(
+class dnsmasq (
   Hash $configs_hash = {},
   Hash $hosts_hash = {},
   Hash $dhcp_hosts_hash = {},

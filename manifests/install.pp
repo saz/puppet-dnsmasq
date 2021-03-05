@@ -16,4 +16,3 @@ class dnsmasq::install {
     }
   }
 }
-
