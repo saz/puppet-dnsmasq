@@ -4,7 +4,7 @@ define dnsmasq::conf (
   Optional[String] $source = undef,
   Optional[String] $content = undef
 ) {
-  include ::dnsmasq
+  include dnsmasq
 
   file { "${dnsmasq::params::config_dir}${prio}-${name}":
     ensure  => $ensure,

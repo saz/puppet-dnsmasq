@@ -1,1 +1,1 @@
-include ::dnsmasq
+include dnsmasq

@@ -6,24 +6,24 @@ class dnsmasq(
   Boolean $service_control = true,
   Boolean $purge_config_dir = false,
 ) {
-  include ::dnsmasq::params
+  include dnsmasq::params
 
-  anchor { '::dnsmasq::start': }
+  anchor { 'dnsmasq::start': }
 
-  class { '::dnsmasq::install': require => Anchor['::dnsmasq::start'], }
+  class { 'dnsmasq::install': require => Anchor['dnsmasq::start'], }
 
-  class { '::dnsmasq::config': require => Class['::dnsmasq::install'], }
+  class { 'dnsmasq::config': require => Class['dnsmasq::install'], }
 
-  class { '::dnsmasq::service':
+  class { 'dnsmasq::service':
     service_control => $service_control,
-    subscribe       => Class['::dnsmasq::install', '::dnsmasq::config'],
+    subscribe       => Class['dnsmasq::install', 'dnsmasq::config'],
   }
 
-  class { '::dnsmasq::reload':
-    require => Class['::dnsmasq::service'],
+  class { 'dnsmasq::reload':
+    require => Class['dnsmasq::service'],
   }
 
-  anchor { '::dnsmasq::end': require => Class['::dnsmasq::service'], }
+  anchor { 'dnsmasq::end': require => Class['dnsmasq::service'], }
   if $::settings::storeconfigs {
     File_line <<| tag == 'dnsmasq-host' |>>
   }
