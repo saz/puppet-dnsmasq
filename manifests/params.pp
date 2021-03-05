@@ -22,4 +22,5 @@ class dnsmasq::params {
       }
     }
   }
+  $service_control = true
 }
