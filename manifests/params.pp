@@ -1,5 +1,5 @@
 class dnsmasq::params {
-  case $::osfamily {
+  case $facts['os']['family'] {
     'Debian': {
       $package_name = 'dnsmasq'
       $service_name = 'dnsmasq'
@@ -15,9 +15,9 @@ class dnsmasq::params {
       $config_dir = '/etc/dnsmasq.d/'
     }
     default: {
-      case $::operatingsystem {
+      case $facts['os']['name'] {
         default: {
-          fail("Unsupported platform: ${::osfamily}/${::operatingsystem}")
+          fail("Unsupported platform: ${facts['os']['family']}/${facts['os']['name']}")
         }
       }
     }
