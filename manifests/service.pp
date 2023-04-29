@@ -3,7 +3,7 @@ class dnsmasq::service (
 ) {
   # validate type and convert string to boolean if necessary
   if $service_control =~ String {
-    $service_control_real = str2bool($service_control)
+    $service_control_real = Boolean($service_control)
   } else {
     $service_control_real = $service_control
   }
