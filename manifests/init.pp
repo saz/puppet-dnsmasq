@@ -1,9 +1,9 @@
 class dnsmasq (
-  Hash $configs_hash = {},
-  Hash $hosts_hash = {},
-  Hash $dhcp_hosts_hash = {},
-  String $package_ensure = 'installed',
-  Boolean $service_control = true,
+  Hash    $configs_hash     = {},
+  Hash    $hosts_hash       = {},
+  Hash    $dhcp_hosts_hash  = {},
+  String  $package_ensure   = 'installed',
+  Boolean $service_control  = true,
   Boolean $purge_config_dir = false,
 ) {
   include dnsmasq::params
@@ -21,7 +21,7 @@ class dnsmasq (
     require => Class['dnsmasq::service'],
   }
 
-  if $::settings::storeconfigs {
+  if $settings::storeconfigs {
     File_line <<| tag == 'dnsmasq-host' |>>
   }
 
