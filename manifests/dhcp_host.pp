@@ -1,17 +1,17 @@
 # # Making life easier
 define dnsmasq::dhcp_host (
-  String $mac,
-  String $hostname = '',
-  String $ip = '',
-  String $prio = '99',
-  Enum['present', 'absent'] $ensure = 'present'
+  String                    $mac,
+  Optional[String[1]]       $hostname = undef,
+  Optional[String[1]]       $ip       = undef,
+  String                    $prio     = '99',
+  Enum['present', 'absent'] $ensure   = 'present'
 ) {
   $h_real = $hostname ? {
-    ''      => $name,
+    undef   => $name,
     default => $hostname,
   }
   $add_real = $ip ? {
-    ''      => $h_real,
+    undef   => $h_real,
     default => "${h_real},${ip}",
   }
 
