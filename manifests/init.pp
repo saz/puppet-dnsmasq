@@ -1,10 +1,12 @@
 class dnsmasq (
-  Hash    $configs_hash     = {},
-  Hash    $hosts_hash       = {},
-  Hash    $dhcp_hosts_hash  = {},
-  String  $package_ensure   = 'installed',
-  Boolean $service_control  = true,
-  Boolean $purge_config_dir = false,
+  Hash                       $configs_hash     = {},
+  Hash                       $hosts_hash       = {},
+  Hash                       $dhcp_hosts_hash  = {},
+  String                     $package_ensure   = 'installed',
+  Boolean                    $service_control  = true,
+  Enum['running', 'stopped'] $service_ensure   = 'running',
+  Boolean                    $service_enable   = true,
+  Boolean                    $purge_config_dir = false,
 ) {
   include dnsmasq::params
 
@@ -14,6 +16,8 @@ class dnsmasq (
 
   class { 'dnsmasq::service':
     service_control => $service_control,
+    service_ensure  => $service_ensure,
+    service_enable  => $server_enable,
     subscribe       => Class['dnsmasq::install', 'dnsmasq::config'],
   }
 

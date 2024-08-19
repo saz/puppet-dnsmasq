@@ -1,5 +1,7 @@
 class dnsmasq::service (
-  Variant[String, Boolean] $service_control = $dnsmasq::params::service_control,
+  Variant[String, Boolean]   $service_control = $dnsmasq::params::service_control,
+  Enum['running', 'stopped'] $service_ensure  = 'running',
+  Boolean                    $service_enable  = true,
 ) {
   # validate type and convert string to boolean if necessary
   if $service_control =~ String {
@@ -9,8 +11,8 @@ class dnsmasq::service (
   }
   if $service_control_real == true {
     service { $dnsmasq::params::service_name:
-      ensure     => 'running',
-      enable     => true,
+      ensure     => $service_ensure,
+      enable     => $service_enable,
       hasrestart => true,
       hasstatus  => true,
     }
