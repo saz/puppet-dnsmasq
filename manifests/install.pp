@@ -1,18 +1,23 @@
+# @summary This class manages the dnsmasq package
+# @api private
 class dnsmasq::install {
-  package { $dnsmasq::params::package_name:
+  assert_private()
+
+  package { $dnsmasq::package_name:
     ensure => $dnsmasq::package_ensure,
   }
 
-  if $dnsmasq::purge_config_dir {
-    file { $dnsmasq::params::config_dir:
-      ensure  => 'directory',
+  $purge_attributes = if $dnsmasq::purge_config_dir {
+    {
       recurse => true,
       purge   => true,
       force   => true,
     }
   } else {
-    file { $dnsmasq::params::config_dir:
-      ensure => 'directory',
-    }
+    {}
+  }
+
+  file { $dnsmasq::config_dir:
+    * => { ensure => 'directory' } + $purge_attributes,
   }
 }
