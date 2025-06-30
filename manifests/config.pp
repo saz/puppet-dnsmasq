@@ -1,9 +1,15 @@
+# @summary This class manages the dnsmasq configuration file
+# @api private
 class dnsmasq::config {
-  file { $dnsmasq::params::config_file:
+  assert_private()
+
+  file { $dnsmasq::config_file:
     owner        => 'root',
     group        => 0,
     mode         => '0644',
-    validate_cmd => '/usr/sbin/dnsmasq --test --conf-file=%',
-    source       => 'puppet:///modules/dnsmasq/dnsmasq.conf',
+    validate_cmd => "${dnsmasq::binary_path} --test --conf-file=%",
+    content      => epp('dnsmasq/dnsmasq.conf.epp',
+      config_dir => $dnsmasq::config_dir
+    ),
   }
 }
