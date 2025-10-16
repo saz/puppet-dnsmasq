@@ -450,10 +450,10 @@ Alias of
 
 ```puppet
 Struct[{
-    Optional[ensure]  => Enum['absent', 'present'],
-    Optional[prio]    => Variant[Integer[0, 999], String[1]],
-    Optional[source]  => Stdlib::Filesource,
-    Optional[content] => String[1],
+  Optional[ensure]  => Enum['absent', 'present'],
+  Optional[prio]    => Variant[Integer[0, 999], String[1]],
+  Optional[source]  => Stdlib::Filesource,
+  Optional[content] => String[1],
 }]
 ```
 
@@ -465,11 +465,11 @@ Alias of
 
 ```puppet
 Struct[{
-    mac                => Stdlib::MAC,
-    Optional[hostname] => Stdlib::FQDN,
-    Optional[ip]       => Stdlib::IP::Address::Nosubnet,
-    Optional[prio]     => Variant[Integer[0, 999], String[1]],
-    Optional[ensure]   => Enum['absent', 'present'],
+  mac                => Stdlib::MAC,
+  Optional[hostname] => Stdlib::FQDN,
+  Optional[ip]       => Stdlib::IP::Address::Nosubnet,
+  Optional[prio]     => Variant[Integer[0, 999], String[1]],
+  Optional[ensure]   => Enum['absent', 'present'],
 }]
 ```
 
@@ -481,11 +481,11 @@ Alias of
 
 ```puppet
 Struct[{
-    ip                 => Stdlib::IP::Address::Nosubnet,
-    Optional[hostname] => Stdlib::FQDN,
-    Optional[aliases]  => Variant[String[1], Array[String[1]]],
-    Optional[mac]      => Stdlib::MAC,
-    Optional[ensure]   => Enum['absent', 'present'],
+  ip                 => Stdlib::IP::Address::Nosubnet,
+  Optional[hostname] => Stdlib::FQDN,
+  Optional[aliases]  => Variant[String[1], Array[String[1]]],
+  Optional[mac]      => Stdlib::MAC,
+  Optional[ensure]   => Enum['absent', 'present'],
 }]
 ```
 
